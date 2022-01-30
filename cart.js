@@ -7,7 +7,6 @@
     creating customer objects.  
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Below is a cart array that has food objects
@@ -19,24 +18,27 @@
 */
 
 const cart = [
-    {
-        name: 'pizza', 
-        price: 9.99
-    }, 
-    {
-        name: 'pasta', 
-        price: 8.99
-    }, 
-    {
-        name: 'salad', 
-        price: 7.99
-    }
-]
+  {
+    name: "pizza",
+    price: 9.99,
+  },
+  {
+    name: "pasta",
+    price: 8.99,
+  },
+  {
+    name: "salad",
+    price: 7.99,
+  },
+];
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+const summedPrice = cart.reduce((a, e) => {
+  console.log(a, e);
+  return a + e.price;
+}, 0);
+// console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,8 +56,10 @@ const cart = [
 */
 
 //CODE HERE
-
-
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+  let finalTotal = (cartTotal - couponValue) * (1 + tax);
+  return finalTotal;
+};
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -77,14 +81,20 @@ const cart = [
     Your object should have at least 4 properties. 
 */
 
-/*
-    TEXT ANSWER HERE
-
-*/
-
+// firstName (str)
+// lastName (str)
+// zipCode (int)
+// creditCard (int)
+// The first to properties are needed as identifiers, the third, to help identify where their customers are from and therefore where they can push further marketing, the creditCard is necessary for purchasing...obviously.
 /*
     Now, create a customer object following your own
     guidelines.
 */
 
 //CODE HERE
+const customer = {
+  firstName: "John",
+  lastName: "Doe",
+  zipCode: 61270,
+  creditCard: 8675309,
+};

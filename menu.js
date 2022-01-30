@@ -7,7 +7,6 @@
     and filtering those arrays. 
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Create an object called `pizza` that has 6
@@ -31,8 +30,22 @@
 */
 
 //CODE HERE
-
-
+const pizza = {
+  name: `Anchovie's Revenge`,
+  price: 69,
+  category: `entree`,
+  popularity: 420,
+  rating: 420,
+  tags: [
+    "legendairy",
+    "mooshroomy",
+    "suspicious",
+    "vegan",
+    "zero calories",
+    "divorce catalyst",
+    "technically food",
+  ],
+};
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -43,7 +56,7 @@
 */
 
 //CODE HERE
-
+// console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +66,7 @@
 */
 
 //CODE HERE
-
+// console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -63,7 +76,8 @@
 */
 
 //CODE HERE
-
+const { price } = pizza;
+// console.log(price)
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +87,8 @@
 */
 
 //CODE HERE
-
+const { category } = pizza;
+// console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,8 +103,73 @@
 */
 
 //CODE HERE
-
-
+const foodArr = [
+  {
+    name: `Anchovie's Revenge`,
+    price: 69,
+    category: `entree`,
+    popularity: 420,
+    rating: 420,
+    tags: [
+      "legendairy",
+      "mooshroomy",
+      "suspicious",
+      "vegan",
+      "zero calories",
+      "divorce catalyst",
+      "technically food",
+    ],
+  },
+  {
+    name: "Resounding Disappointment",
+    price: -42,
+    category: `entree`,
+    popularity: 0,
+    ratings: 0,
+    tags: [
+      `asked mom to prom`,
+      `still rejected`,
+      `is this pizza?`,
+      `gluten free`,
+    ],
+  },
+  {
+    name: `Pineapple Oyster Sunrise`,
+    price: 3,
+    category: `entree`,
+    popularity: 1,
+    rating: 1,
+    tags: [`disorienting`, `anesthetic`, `cultured`, `the modern "red pill"`],
+  },
+  {
+    name: `Banana Pepper & Italian Meatball`,
+    price: 8,
+    category: `entree`,
+    popularity: 10,
+    rating: 10,
+    tags: [
+      `delightful`,
+      `miracle food`,
+      `superfood`,
+      `antidepressant`,
+      `carnivore`,
+    ],
+  },
+  {
+    name: `The Heart Stopper`,
+    price: 9,
+    category: `entree`,
+    popularity: 7,
+    rating: 7,
+    tags: [
+      `morally dubious`,
+      `carnivore`,
+      `vegan`,
+      `looks good in any color`,
+      `the lawyer of pizzas`,
+    ],
+  },
+];
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -104,10 +184,10 @@
 */
 
 //CODE HERE
-
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
-
+const filteredFood = foodArr.filter((meal) => meal.tags.includes(`carnivore`));
+// console.log(filteredFood)
+// const filteredFood = foodArr.filter(meal => meal.tags.includes(`vegan`))
+// console.log(filteredFood)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -149,8 +229,16 @@
 */
 
 //CODE HERE
-
-
+const filterByProperty = (property, number, type) => {
+  const filteredArray = foodArr.filter((meal) => {
+    if (type === "above") {
+      return meal[property] > number;
+    } else if (type === "below") {
+      return meal[property] < number;
+    }
+  });
+  return filteredArray;
+};
 /*
     Invoke the `filterByProperty` function passing
     in a value for each paramter.
@@ -159,3 +247,4 @@
 */
 
 //CODE HERE
+// console.log(filterByProperty('price', 9, 'above'))
